@@ -62,44 +62,79 @@ export function Gallery() {
   };
 
   return (
-    <section id="gallery" className="py-24 bg-[#14110F]">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="gallery" className="py-24 md:py-32 bg-[#1A1614] relative">
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-za-gold/20 to-transparent"></div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={fadeUpVariant}
-          className="text-center mb-16"
-        >
-          <div className="text-za-gold/80 tracking-[0.3em] text-xs md:text-sm uppercase font-sans mb-4">Gallery</div>
-          <h2 className="text-4xl md:text-5xl font-serif text-za-cream">A Look Inside</h2>
-        </motion.div>
+        <div className="flex flex-col items-center justify-center text-center mb-20">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeUpVariant}
+          >
+            <div className="flex items-center gap-4 justify-center mb-6">
+              <div className="w-8 h-px bg-za-gold/50"></div>
+              <div className="text-za-gold tracking-[0.3em] text-xs uppercase font-sans">Visual Journey</div>
+              <div className="w-8 h-px bg-za-gold/50"></div>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-serif text-za-cream mb-6">The Suite in Detail</h2>
+            <p className="font-sans text-za-cream/60 max-w-lg mx-auto text-sm md:text-base leading-relaxed">
+              Explore the carefully curated spaces of Z&A Suites, designed to offer comfort and quiet luxury.
+            </p>
+          </motion.div>
+        </div>
 
         {/* Masonry/Grid Layout */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4 lg:gap-6">
-          {P.GALLERY.map((url, i) => (
-            <motion.div
-              key={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUpVariant}
-              custom={i % 3} // Stagger columns
-              className={`relative overflow-hidden rounded-sm cursor-pointer group bg-za-sand/20 aspect-square md:aspect-[4/5] ${
-                i === 0 || i === 4 ? 'col-span-2 md:col-span-2 aspect-[2/1] md:aspect-[16/9]' : '' // Make some items span 2 cols
-              }`}
-              onClick={() => openLightbox(i)}
-            >
-              <img 
-                src={url} 
-                alt={`Z&A Suites Interior ${i + 1}`}
-                loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-za-charcoal/0 group-hover:bg-za-charcoal/10 transition-colors duration-300" />
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+          {P.GALLERY.map((url, i) => {
+            // Complex asymmetric grid layout
+            let colSpanClass = "";
+            let aspectClass = "";
+            
+            if (i === 0) {
+              colSpanClass = "md:col-span-8";
+              aspectClass = "aspect-[16/9] md:aspect-[2/1]";
+            } else if (i === 1) {
+              colSpanClass = "md:col-span-4";
+              aspectClass = "aspect-square md:aspect-[4/5]";
+            } else if (i === 2) {
+              colSpanClass = "md:col-span-4";
+              aspectClass = "aspect-square md:aspect-[3/4]";
+            } else if (i === 3) {
+              colSpanClass = "md:col-span-4";
+              aspectClass = "aspect-square md:aspect-[3/4]";
+            } else {
+              colSpanClass = "md:col-span-4";
+              aspectClass = "aspect-square md:aspect-[3/4]";
+            }
+
+            return (
+              <motion.div
+                key={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "50px" }}
+                variants={fadeUpVariant}
+                custom={i}
+                className={`relative overflow-hidden cursor-pointer group bg-[#2A2421] ${colSpanClass} ${aspectClass}`}
+                onClick={() => openLightbox(i)}
+              >
+                <img 
+                  src={url} 
+                  alt={`Z&A Suites Interior ${i + 1}`}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110 opacity-90 group-hover:opacity-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1A1614]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute bottom-6 left-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                  <div className="w-10 h-10 rounded-full border border-za-cream/30 flex items-center justify-center backdrop-blur-sm bg-black/20">
+                    <span className="text-za-cream text-sm">+</span>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 

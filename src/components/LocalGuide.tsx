@@ -38,59 +38,80 @@ export function LocalGuide() {
   const [activeTab, setActiveTab] = useState('dining');
 
   return (
-    <section id="local-guide" className="py-24 bg-za-cream">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="local-guide" className="py-24 md:py-32 bg-za-cream relative">
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] opacity-40 mix-blend-multiply pointer-events-none" />
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         
-        <motion.div 
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={fadeUpVariant}
-          className="text-center mb-12"
-        >
-          <div className="text-za-walnut tracking-widest-plus text-xs md:text-sm uppercase font-sans mb-4">Neighborhood</div>
-          <h2 className="text-4xl md:text-5xl font-serif text-za-espresso">Local Area Guide</h2>
-        </motion.div>
+        <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeUpVariant}
+            className="text-left max-w-xl"
+          >
+            <div className="flex items-center gap-4 mb-4">
+              <div className="h-[1px] w-8 bg-za-walnut"></div>
+              <div className="text-za-walnut tracking-[0.2em] text-xs uppercase font-sans">Neighborhood</div>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-za-espresso leading-tight">
+              A curated guide to <br/><span className="italic text-za-gold">our locale</span>
+            </h2>
+          </motion.div>
+          
+          <p className="font-sans text-za-charcoal/80 text-sm md:text-base max-w-sm border-l border-za-sand/50 pl-6 hidden md:block">
+            Discover the best dining, shopping, and leisurely spots just moments away from your door. Handpicked to elevate your stay.
+          </p>
+        </div>
 
         {/* Tabs */}
-        <div className="flex overflow-x-auto hide-scrollbar justify-start md:justify-center gap-2 mb-12 pb-4 -mx-6 px-6 md:mx-0 md:px-0">
+        <div className="flex overflow-x-auto hide-scrollbar justify-start gap-4 mb-12 pb-4 -mx-6 px-6 md:mx-0 md:px-0">
            {categories.map(cat => (
              <button
                key={cat.id}
                onClick={() => setActiveTab(cat.id)}
-               className={`flex items-center gap-2 px-5 py-3 rounded-none border font-sans text-xs uppercase tracking-[0.15em] transition-all whitespace-nowrap flex-shrink-0 ${
+               className={`flex items-center gap-3 px-6 py-4 rounded-sm transition-all whitespace-nowrap flex-shrink-0 relative overflow-hidden group ${
                  activeTab === cat.id 
-                   ? 'bg-za-espresso text-za-cream border-za-espresso shadow-sm' 
-                   : 'bg-za-warm-white text-za-charcoal border-za-sand/30 hover:border-za-walnut'
+                   ? 'bg-za-espresso text-za-warm-white shadow-md' 
+                   : 'bg-za-warm-white border border-za-sand/30 text-za-charcoal hover:border-za-walnut/50'
                }`}
              >
-               <cat.icon size={16} strokeWidth={1.5} />
-               {cat.label}
+               <div className={`absolute inset-0 bg-za-gold/10 transform origin-left transition-transform duration-300 ${activeTab === cat.id ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+               <cat.icon size={18} strokeWidth={1.5} className="relative z-10" />
+               <span className="font-sans text-xs uppercase tracking-[0.2em] relative z-10">{cat.label}</span>
              </button>
            ))}
         </div>
 
         {/* Content */}
-        <div className="min-h-[300px]">
+        <div className="min-h-[400px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
                {(places as any)[activeTab].map((place: any, i: number) => (
-                 <div key={i} className="bg-za-warm-white p-6 rounded-sm border border-za-sand/20 hover:border-za-sand/60 hover:shadow-sm transition-all group">
-                    <h4 className="font-serif text-xl md:text-2xl text-za-espresso mb-2">{place.name}</h4>
-                    <p className="font-sans text-sm text-za-charcoal font-light mb-4 line-clamp-2">{place.desc}</p>
+                 <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                    key={i} 
+                    className="bg-white p-8 rounded-sm shadow-sm border border-za-sand/20 hover:border-za-gold/50 hover:shadow-md transition-all duration-300 group flex flex-col h-full relative"
+                 >
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-za-sand/10 rounded-bl-full transition-colors group-hover:bg-za-gold/10" />
                     
-                    <div className="flex items-center gap-2 text-za-walnut font-sans text-xs tracking-wide uppercase mt-auto pt-4 border-t border-za-sand/10">
-                       <div className="w-1.5 h-1.5 rounded-full bg-za-gold group-hover:scale-150 transition-transform" />
+                    <h4 className="font-serif text-xl md:text-2xl text-za-espresso mb-3 pr-8 relative z-10">{place.name}</h4>
+                    <p className="font-sans text-sm text-za-charcoal/80 leading-relaxed mb-8 flex-grow relative z-10">{place.desc}</p>
+                    
+                    <div className="flex items-center gap-3 text-za-walnut font-sans text-[11px] font-medium tracking-widest uppercase mt-auto pt-5 border-t border-za-sand/20 relative z-10">
+                       <span className="w-1.5 h-1.5 rounded-full bg-za-gold group-hover:scale-[1.8] group-hover:bg-za-espresso transition-all duration-300 shadow-[0_0_8px_rgba(193,154,107,0.4)]" />
                        {place.time}
                     </div>
-                 </div>
+                 </motion.div>
                ))}
             </motion.div>
           </AnimatePresence>

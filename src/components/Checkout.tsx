@@ -65,8 +65,13 @@ export function Checkout() {
   };
 
   return (
-    <section id="checkout" className="py-24 md:py-32 bg-za-cream relative">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="checkout" className="py-24 md:py-32 bg-[#FAF9F6] relative border-t border-za-sand/20">
+      
+      {/* Decorative vertical lines */}
+      <div className="absolute top-0 bottom-0 left-[10%] w-px bg-za-sand/10 hidden lg:block"></div>
+      <div className="absolute top-0 bottom-0 right-[10%] w-px bg-za-sand/10 hidden lg:block"></div>
+      
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
         
         <div className="text-center mb-16">
           <motion.div 
@@ -75,13 +80,13 @@ export function Checkout() {
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeUpVariant}
           >
-            <h2 className="text-4xl md:text-6xl font-serif text-za-espresso leading-none mb-6">
-              Check-Out Protocol
+            <h2 className="text-4xl md:text-6xl font-serif text-za-espresso leading-none mb-6 italic">
+              Departure Protocol
             </h2>
-            <div className="text-za-walnut tracking-[0.2em] text-xs uppercase font-sans flex items-center justify-center gap-4">
-               <div className="w-12 h-[1px] bg-za-sand"></div>
+            <div className="text-za-walnut tracking-[0.3em] font-medium text-[10px] md:text-xs uppercase font-sans flex items-center justify-center gap-4">
+               <div className="w-16 h-px bg-za-walnut/30"></div>
                BY 12:00 NOON
-               <div className="w-12 h-[1px] bg-za-sand"></div>
+               <div className="w-16 h-px bg-za-walnut/30"></div>
             </div>
           </motion.div>
         </div>
@@ -91,27 +96,35 @@ export function Checkout() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
-          className="relative bg-za-warm-white p-8 md:p-12 shadow-sm rounded-sm border border-za-sand/20"
+          className="relative bg-white p-8 md:p-14 shadow-[0_20px_60px_-15px_rgba(44,36,32,0.05)] rounded-sm border border-za-sand/30"
         >
+          {/* Subtle ornate corners */}
+          <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-za-sand/40 hidden md:block"></div>
+          <div className="absolute top-2 right-2 w-4 h-4 border-t border-r border-za-sand/40 hidden md:block"></div>
+          <div className="absolute bottom-2 left-2 w-4 h-4 border-b border-l border-za-sand/40 hidden md:block"></div>
+          <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-za-sand/40 hidden md:block"></div>
+
           <AnimatePresence>
             {showSuccess && (
               <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                className="absolute inset-0 z-20 flex items-center justify-center bg-za-warm-white/95 backdrop-blur-sm"
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                className="absolute inset-0 z-20 flex items-center justify-center bg-white/95 backdrop-blur-md"
               >
                  <div className="text-center p-8 max-w-sm">
-                    <div className="w-16 h-16 rounded-full bg-za-gold/10 text-za-gold flex items-center justify-center mx-auto mb-6">
-                       <CheckCircle size={32} strokeWidth={1.5} />
+                    <div className="w-20 h-20 rounded-full border border-za-gold/30 flex items-center justify-center mx-auto mb-6 relative">
+                       <div className="absolute inset-2 rounded-full bg-za-gold/10 flex items-center justify-center">
+                          <CheckCircle size={32} strokeWidth={1} className="text-za-gold" />
+                       </div>
                     </div>
-                    <h3 className="font-serif text-3xl text-za-espresso mb-3">Thank You</h3>
-                    <p className="font-sans text-sm text-za-charcoal/80 mb-6 leading-relaxed">
+                    <h3 className="font-serif text-3xl md:text-4xl text-za-espresso mb-4 italic">Thank You</h3>
+                    <p className="font-sans text-sm text-za-charcoal/80 mb-8 leading-relaxed">
                       Your checklist is complete. We deeply appreciate your care for Z&A Suites. Safe travels onwards!
                     </p>
                     <button 
                        onClick={() => setCompletedSteps({})} 
-                       className="text-xs uppercase tracking-[0.1em] text-za-walnut hover:text-za-espresso border-b border-za-walnut pb-1 transition-colors"
+                       className="font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-za-walnut hover:text-za-gold border-b border-za-walnut/30 hover:border-za-gold pb-1 transition-colors"
                     >
                        Reset Checklist
                     </button>
@@ -120,11 +133,11 @@ export function Checkout() {
             )}
           </AnimatePresence>
 
-          <p className="font-sans text-sm md:text-base text-za-charcoal/80 text-center mb-10 leading-relaxed max-w-2xl mx-auto">
+          <p className="font-sans text-sm md:text-base text-za-charcoal/70 text-center mb-12 leading-relaxed max-w-2xl mx-auto">
             To ensure a smooth transition for our next guests and secure the swift release of your security deposit, please complete the following steps before your departure.
           </p>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {checkoutSteps.map((step) => {
               const isDone = completedSteps[step.id];
               return (
@@ -132,36 +145,39 @@ export function Checkout() {
                   key={step.id}
                   variants={fadeUpVariant}
                   onClick={() => toggleStep(step.id)}
-                  className={`group cursor-pointer flex flex-col md:flex-row gap-6 p-6 border transition-all duration-300 rounded-sm ${
+                  className={`group cursor-pointer flex flex-col md:flex-row gap-6 p-6 md:p-8 transition-all duration-500 rounded-none relative overflow-hidden ${
                     isDone 
-                      ? 'border-za-sand/30 bg-za-cream/30 opacity-60' 
-                      : 'border-za-sand/50 bg-white hover:border-za-gold hover:shadow-md'
+                      ? 'bg-za-sand/5 grayscale-[0.5] opacity-70' 
+                      : 'bg-white hover:bg-za-warm-white'
                   }`}
                 >
-                  <div className="flex-shrink-0">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${
-                      isDone ? 'bg-za-sand/20 text-za-walnut' : 'bg-za-cream text-za-espresso group-hover:bg-za-gold/10 group-hover:text-za-gold'
+                  {/* Custom divider top */}
+                  <div className="absolute top-0 left-6 right-6 h-px bg-za-sand/20"></div>
+
+                  <div className="flex-shrink-0 relative z-10">
+                    <div className={`w-14 h-14 rounded-full flex items-center justify-center transition-all duration-500 ${
+                      isDone ? 'bg-za-sand/20 text-za-walnut' : 'bg-za-cream text-za-espresso group-hover:scale-110 group-hover:bg-za-gold/10 group-hover:text-za-gold'
                     }`}>
-                      <step.icon strokeWidth={1.5} size={20} />
+                      <step.icon strokeWidth={1} size={24} />
                     </div>
                   </div>
                   
-                  <div className="flex-grow">
-                    <h4 className="font-serif text-xl text-za-espresso mb-2">
+                  <div className="flex-grow relative z-10">
+                    <h4 className={`font-serif text-xl md:text-2xl mb-2 transition-colors ${isDone ? 'text-za-charcoal/60' : 'text-za-espresso group-hover:text-za-gold'}`}>
                        {step.title}
                     </h4>
-                    <p className="font-sans text-xs md:text-sm text-za-charcoal/70 leading-relaxed">
+                    <p className={`font-sans text-xs md:text-sm leading-relaxed transition-colors ${isDone ? 'text-za-charcoal/50' : 'text-za-charcoal/80'}`}>
                        {step.desc}
                     </p>
                   </div>
 
-                  <div className="flex-shrink-0 flex items-center justify-start md:justify-center mt-2 md:mt-0">
-                    <div className={`w-6 h-6 rounded-sm flex items-center justify-center transition-all border ${
+                  <div className="flex-shrink-0 flex items-center justify-start md:justify-center mt-2 md:mt-0 relative z-10">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-500 border ${
                       isDone 
-                        ? 'bg-za-gold border-za-gold text-white' 
-                        : 'bg-transparent border-za-sand group-hover:border-za-gold text-transparent'
+                        ? 'bg-za-gold border-za-gold text-white scale-110' 
+                        : 'bg-transparent border-za-sand group-hover:border-za-gold/50 text-transparent'
                     }`}>
-                      <CheckCircle size={14} strokeWidth={2.5} className={isDone ? 'opacity-100' : 'opacity-0'} />
+                      <CheckCircle size={16} strokeWidth={2} className={`transition-all duration-500 ${isDone ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`} />
                     </div>
                   </div>
                 </motion.div>
