@@ -13,10 +13,12 @@ import { Checkout } from './components/Checkout';
 import { LocalGuide } from './components/LocalGuide';
 import { Contact } from './components/Contact';
 import { Farewell } from './components/Farewell';
+import { LoadingScreen } from './components/LoadingScreen';
 
 export default function App() {
   return (
     <div className="selection:bg-za-gold/30 selection:text-za-espresso bg-za-cream min-h-screen">
+      <LoadingScreen />
       <Navigation />
       <main>
         <Hero />

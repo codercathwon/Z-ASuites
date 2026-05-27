@@ -1,26 +1,45 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { fadeUpVariant, staggerContainer } from '../lib/animations';
-import { Check, Clock, Sparkles, Trash2, Coffee, Bath, Tv, CheckSquare, Lock, Wallet, Bell } from 'lucide-react';
+import { Power, Trash2, Home, Key, MapPin, CheckCircle } from 'lucide-react';
 
 const checkoutSteps = [
-  { id: 'time', icon: Clock, title: 'Check-Out Time', desc: 'Vacate the property by 12:00 noon.' },
-  { id: 'clean', icon: Sparkles, title: 'Cleanliness', desc: 'Tidy up, return furniture to original placement. Cleaning fee is not included in your rate.' },
-  { id: 'trash', icon: Trash2, title: 'Trash Disposal', desc: 'Take trash to the bins. Dispose all perishables. Do not leave food in the refrigerator.' },
-  { id: 'dishes', icon: Coffee, title: 'Dishes', desc: 'Wash all dishes and return to their original placement.' },
-  { id: 'linens', icon: Bath, title: 'Linens', desc: 'Ensure all towels, blankets, and linens are complete and free from stains.' },
-  { id: 'appliances', icon: Tv, title: 'Appliances', desc: 'Turn off the AC, all appliances, and all lights.' },
-  { id: 'double', icon: CheckSquare, title: 'Double Check', desc: 'Do a full walk-through. Check you haven\'t left any personal belongings.' },
-  { id: 'security', icon: Lock, title: 'Security', desc: 'Close all windows. Ensure the door is securely locked.' },
-  { id: 'deposit', icon: Wallet, title: 'Security Deposit', desc: 'Refund will be processed by 3:00 PM provided there are no damages.' },
-  { id: 'notice', icon: Bell, title: 'Check-Out Notice', desc: 'Inform the host that you are leaving.' },
+  { 
+    id: 'power', 
+    icon: Power, 
+    title: 'Appliances & Lights', 
+    desc: 'Please ensure all lights, air conditioning units, and appliances (including the TV and kitchen equipment) are turned off before your departure to conserve energy.' 
+  },
+  { 
+    id: 'trash', 
+    icon: Trash2, 
+    title: 'Trash Disposal', 
+    desc: 'Kindly gather all your trash and take it down to the designated garbage disposal area in the building. Please empty the refrigerator of any leftover perishable food.' 
+  },
+  { 
+    id: 'clean', 
+    icon: Home, 
+    title: 'Tidy Space', 
+    desc: 'While we completely handle the deep cleaning, we deeply appreciate it when guests leave the space tidy. Please wash any used dishes and return furniture to its original layout.' 
+  },
+  { 
+    id: 'lock', 
+    icon: Key, 
+    title: 'Secure the Suite', 
+    desc: 'Please double-check that all windows are closed. When leaving, firmly close the main door and ensure the smart lock is fully engaged.' 
+  },
+  { 
+    id: 'notice', 
+    icon: MapPin, 
+    title: 'Departure Notice', 
+    desc: 'Once you have safely checked out, please send us a quick text message or message on our booking platform so our cleaning staff can prepare the suite for the next guest.' 
+  },
 ];
 
 export function Checkout() {
   const [completedSteps, setCompletedSteps] = useState<Record<string, boolean>>({});
   const [showSuccess, setShowSuccess] = useState(false);
 
-  // Load from local storage
   useEffect(() => {
     const saved = localStorage.getItem('za-completed-steps');
     if (saved) {
@@ -28,11 +47,8 @@ export function Checkout() {
     }
   }, []);
 
-  // Save and check completion
   useEffect(() => {
     localStorage.setItem('za-completed-steps', JSON.stringify(completedSteps));
-    
-    // Check if all steps done
     const isAllDone = checkoutSteps.every(step => completedSteps[step.id]);
     if (isAllDone && checkoutSteps.length > 0) {
       setShowSuccess(true);
@@ -50,47 +66,52 @@ export function Checkout() {
 
   return (
     <section id="checkout" className="py-24 md:py-32 bg-za-cream relative">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6">
         
-        <div className="text-center mb-20">
+        <div className="text-center mb-16">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeUpVariant}
           >
-            <h2 className="text-[12vw] md:text-[6rem] lg:text-[7rem] font-serif text-za-espresso leading-none uppercase tracking-tighter mb-6 relative inline-block">
-              Check-Out
-              <span className="absolute -top-4 -right-8 text-3xl text-za-gold">✦</span>
+            <h2 className="text-4xl md:text-6xl font-serif text-za-espresso leading-none mb-6">
+              Check-Out Protocol
             </h2>
-            <div className="text-za-walnut tracking-[0.3em] text-[10px] md:text-xs uppercase font-sans flex items-center justify-center gap-4">
-               <div className="w-8 h-[1px] bg-za-sand"></div>
-               Instructions
-               <div className="w-8 h-[1px] bg-za-sand"></div>
+            <div className="text-za-walnut tracking-[0.2em] text-xs uppercase font-sans flex items-center justify-center gap-4">
+               <div className="w-12 h-[1px] bg-za-sand"></div>
+               BY 12:00 NOON
+               <div className="w-12 h-[1px] bg-za-sand"></div>
             </div>
           </motion.div>
         </div>
 
-        {/* Steps List */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-y-16 relative">
-          
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+          className="relative bg-za-warm-white p-8 md:p-12 shadow-sm rounded-sm border border-za-sand/20"
+        >
           <AnimatePresence>
             {showSuccess && (
               <motion.div 
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                className="absolute inset-0 z-20 flex items-center justify-center bg-za-cream/95 backdrop-blur-md rounded-sm"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="absolute inset-0 z-20 flex items-center justify-center bg-za-warm-white/95 backdrop-blur-sm"
               >
-                 <div className="text-center p-12 bg-za-warm-white border border-za-gold/50 rounded-sm shadow-xl max-w-lg w-full">
-                    <div className="w-20 h-20 rounded-full bg-za-gold text-za-white flex items-center justify-center mx-auto mb-8 shadow-lg shadow-za-gold/20">
-                       <Check size={40} strokeWidth={1.5} />
+                 <div className="text-center p-8 max-w-sm">
+                    <div className="w-16 h-16 rounded-full bg-za-gold/10 text-za-gold flex items-center justify-center mx-auto mb-6">
+                       <CheckCircle size={32} strokeWidth={1.5} />
                     </div>
-                    <h3 className="font-serif text-4xl md:text-5xl text-za-espresso mb-4">All Set!</h3>
-                    <p className="font-sans text-za-charcoal/80 mb-8 tracking-wide">Safe travels. We hope to host you again. 🌿</p>
+                    <h3 className="font-serif text-3xl text-za-espresso mb-3">Thank You</h3>
+                    <p className="font-sans text-sm text-za-charcoal/80 mb-6 leading-relaxed">
+                      Your checklist is complete. We deeply appreciate your care for Z&A Suites. Safe travels onwards!
+                    </p>
                     <button 
                        onClick={() => setCompletedSteps({})} 
-                       className="text-xs uppercase tracking-[0.2em] text-za-walnut hover:text-za-espresso border-b border-za-walnut pb-1 transition-colors"
+                       className="text-xs uppercase tracking-[0.1em] text-za-walnut hover:text-za-espresso border-b border-za-walnut pb-1 transition-colors"
                     >
                        Reset Checklist
                     </button>
@@ -99,37 +120,56 @@ export function Checkout() {
             )}
           </AnimatePresence>
 
-          {checkoutSteps.map((step) => {
-            const isDone = completedSteps[step.id];
-            
-            return (
-              <motion.div 
-                key={step.id}
-                layout
-                onClick={() => toggleStep(step.id)}
-                className={`group cursor-pointer flex flex-col items-center text-center p-6 transition-all duration-300 ${
-                  isDone ? 'opacity-40 grayscale hover:opacity-80' : 'opacity-100'
-                }`}
-              >
-                 <div className="w-20 h-20 md:w-24 md:h-24 rounded-full border border-za-sand flex items-center justify-center text-za-espresso mb-6 group-hover:scale-105 group-hover:border-za-gold transition-all bg-za-warm-white shadow-sm duration-500">
-                    <step.icon strokeWidth={0.75} size={36} />
-                 </div>
-                 <h4 className="font-serif text-xl md:text-2xl text-za-espresso mb-3 tracking-wide">
-                    {step.title}
-                 </h4>
-                 <p className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.1em] text-za-charcoal leading-relaxed max-w-[280px]">
-                    {step.desc}
-                 </p>
-                 
-                  <div className={`mt-8 w-6 h-6 flex items-center justify-center transition-colors ${
-                    isDone ? 'bg-za-gold text-za-white' : 'bg-za-warm-white border border-za-sand text-transparent group-hover:border-za-walnut'
-                  }`}>
-                    <Check size={16} strokeWidth={2} className={isDone ? 'opacity-100' : 'opacity-0'} />
+          <p className="font-sans text-sm md:text-base text-za-charcoal/80 text-center mb-10 leading-relaxed max-w-2xl mx-auto">
+            To ensure a smooth transition for our next guests and secure the swift release of your security deposit, please complete the following steps before your departure.
+          </p>
+
+          <div className="space-y-6">
+            {checkoutSteps.map((step) => {
+              const isDone = completedSteps[step.id];
+              return (
+                <motion.div 
+                  key={step.id}
+                  variants={fadeUpVariant}
+                  onClick={() => toggleStep(step.id)}
+                  className={`group cursor-pointer flex flex-col md:flex-row gap-6 p-6 border transition-all duration-300 rounded-sm ${
+                    isDone 
+                      ? 'border-za-sand/30 bg-za-cream/30 opacity-60' 
+                      : 'border-za-sand/50 bg-white hover:border-za-gold hover:shadow-md'
+                  }`}
+                >
+                  <div className="flex-shrink-0">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${
+                      isDone ? 'bg-za-sand/20 text-za-walnut' : 'bg-za-cream text-za-espresso group-hover:bg-za-gold/10 group-hover:text-za-gold'
+                    }`}>
+                      <step.icon strokeWidth={1.5} size={20} />
+                    </div>
                   </div>
-              </motion.div>
-            );
-          })}
-        </div>
+                  
+                  <div className="flex-grow">
+                    <h4 className="font-serif text-xl text-za-espresso mb-2">
+                       {step.title}
+                    </h4>
+                    <p className="font-sans text-xs md:text-sm text-za-charcoal/70 leading-relaxed">
+                       {step.desc}
+                    </p>
+                  </div>
+
+                  <div className="flex-shrink-0 flex items-center justify-start md:justify-center mt-2 md:mt-0">
+                    <div className={`w-6 h-6 rounded-sm flex items-center justify-center transition-all border ${
+                      isDone 
+                        ? 'bg-za-gold border-za-gold text-white' 
+                        : 'bg-transparent border-za-sand group-hover:border-za-gold text-transparent'
+                    }`}>
+                      <CheckCircle size={14} strokeWidth={2.5} className={isDone ? 'opacity-100' : 'opacity-0'} />
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+        </motion.div>
       </div>
     </section>
   );
