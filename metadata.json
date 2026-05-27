@@ -1,0 +1,6 @@
+{
+  "name": "ZA Suites Davao",
+  "description": "Digital Welcome Book & Property Website. Luxury that feels like home. A Japandi-inspired digital guide.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

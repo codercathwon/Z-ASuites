@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-za-cream: #F5F0E8;
+  --color-za-warm-white: #FAF7F2;
+  --color-za-sand: #C8B89A;
+  --color-za-walnut: #8B6F4E;
+  --color-za-espresso: #4A3728;
+  --color-za-gold: #C9A96E;
+  --color-za-charcoal: #2C2420;
+  --color-za-moss: #6B7B5E;
+  --color-za-white: #FFFFFF;
+
+  --font-serif: "Playfair Display", "Cormorant Garamond", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Montserrat", "Jost", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  background-color: var(--color-za-cream);
+  color: var(--color-za-charcoal);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-za-cream);
+  color: var(--color-za-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .font-serif {
+  font-family: var(--font-serif);
+}
+
+.tracking-widest-plus {
+  letter-spacing: 0.15em;
+}
+
+/* Custom Scrollbar for Lightbox */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-za-cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-za-sand);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-za-walnut);
+}
+
+html.lightbox-open {
+  overflow: hidden;
+}

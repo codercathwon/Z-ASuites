@@ -1,0 +1,110 @@
+import { motion } from 'motion/react';
+import { fadeUpVariant, staggerContainer } from '../lib/animations';
+import { Bed, Users, Square, Wifi, ShowerHead, Car, Tv, Wind, CheckCircle2 } from 'lucide-react';
+
+const features = [
+  { icon: Square, label: 'Studio Type Unit' },
+  { icon: Bed, label: 'Queen-Sized Bed' },
+  { icon: Users, label: 'Up to 4 Guests' },
+  { icon: ShowerHead, label: 'Hot & Cold Shower' },
+  { icon: Wifi, label: 'Unlimited WiFi' },
+  { icon: Tv, label: 'Board Games' },
+  { icon: CheckCircle2, label: 'Fully Equipped Kitchen' },
+  { icon: CheckCircle2, label: 'Fully Furnished' },
+  { icon: Car, label: 'Paid Parking Available' },
+  { icon: Wind, label: 'Swimming Pool (Coming Soon)' },
+];
+
+export function Property() {
+  return (
+    <section id="property" className="py-24 bg-za-warm-white">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* About the Space */}
+        <div className="max-w-3xl mx-auto text-center mb-24">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+            className="space-y-6"
+          >
+            <motion.h3 variants={fadeUpVariant} className="font-serif text-3xl md:text-4xl text-za-espresso">
+              Your Space
+            </motion.h3>
+            <motion.p variants={fadeUpVariant} className="font-sans text-za-charcoal font-light text-base md:text-lg leading-relaxed">
+              Step into a thoughtfully curated haven where warm light meets raw textures. 
+              The suite is designed for quiet mornings and restful evenings, keeping the noise of the city out, while placing its conveniences just outside your door.
+            </motion.p>
+            <motion.p variants={fadeUpVariant} className="font-sans text-za-walnut font-medium">
+              5-minute walk from SM City Davao (Ecoland) · Walking distance from Davao Global Township
+            </motion.p>
+          </motion.div>
+        </div>
+
+        {/* Features Grid */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={staggerContainer}
+          className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6 max-w-5xl mx-auto mb-32 border-b border-za-sand/30 pb-16"
+        >
+          {features.map((feature, i) => (
+            <motion.div 
+              key={i} 
+              variants={fadeUpVariant}
+              className="flex flex-col items-center text-center space-y-4"
+            >
+              <div className="w-14 h-14 rounded-full flex items-center justify-center text-za-gold bg-za-sand/10 shadow-sm border border-za-sand/20">
+                <feature.icon strokeWidth={1} size={26} />
+              </div>
+              <span className="font-sans text-xs tracking-widest text-za-espresso font-light uppercase">{feature.label}</span>
+            </motion.div>
+          ))}
+          
+          {/* Times */}
+          <motion.div variants={fadeUpVariant} className="flex flex-col items-center justify-center text-center space-y-2 col-span-2 md:col-span-2 mt-8 md:mt-0 p-6 bg-za-sand/5 border border-za-sand/20">
+             <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-za-walnut">Check-In</div>
+             <div className="font-serif text-2xl text-za-espresso">2:00 PM</div>
+          </motion.div>
+          <motion.div variants={fadeUpVariant} className="flex flex-col items-center justify-center text-center space-y-2 col-span-2 md:col-span-2 mt-8 md:mt-0 p-6 bg-za-sand/5 border border-za-sand/20">
+             <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-za-walnut">Check-Out</div>
+             <div className="font-serif text-2xl text-za-espresso">12:00 NN</div>
+          </motion.div>
+        </motion.div>
+
+        {/* Map */}
+        <motion.div
+           initial="hidden"
+           whileInView="visible"
+           viewport={{ once: true, margin: "-50px" }}
+           variants={fadeUpVariant}
+           className="max-w-5xl mx-auto"
+        >
+          <div className="rounded-sm overflow-hidden border border-za-sand/50 h-[400px] md:h-[500px] relative shadow-sm shadow-za-espresso/5 bg-za-cream">
+             {/* Note: Iframe styling with css filter for sepia/warmth */}
+             <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.5694709405234!2d125.5847!3d7.059722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0!2zN8KwMDMnMzUuMCJOIDEyNcKwMzUnMDQuOSJF!5e0!3m2!1sen!2sph!4v1700000000000!5m2!1sen!2sph"
+                className="absolute inset-0 w-full h-full border-0 filter sepia-[0.2] contrast-[0.95] brightness-[1.05]"
+                allowFullScreen={false} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Map to Z&A Suites"
+              />
+          </div>
+          <div className="mt-6 text-center">
+             <a 
+                href="https://maps.app.goo.gl/mM19cWEFAbZ4USed9" 
+                target="_blank" 
+                rel="noreferrer"
+                className="inline-flex items-center space-x-2 bg-za-espresso text-za-cream px-6 py-3 rounded-none font-sans text-xs font-bold tracking-[0.15em] uppercase hover:bg-za-charcoal transition-colors hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Get Directions</span>
+             </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
