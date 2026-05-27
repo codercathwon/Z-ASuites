@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { fadeUpVariant, staggerContainer } from '../lib/animations';
-import { Bed, Users, Square, Wifi, ShowerHead, Car, Tv, Wind, CheckCircle2 } from 'lucide-react';
+import { Bed, Users, Square, Wifi, ShowerHead, Car, Tv, Wind, CheckCircle2, Dumbbell, Baby, Palmtree, Utensils } from 'lucide-react';
 
 const features = [
   { icon: Square, label: 'Studio Type Unit' },
@@ -9,10 +9,13 @@ const features = [
   { icon: ShowerHead, label: 'Hot & Cold Shower' },
   { icon: Wifi, label: 'Unlimited WiFi' },
   { icon: Tv, label: 'Board Games' },
-  { icon: CheckCircle2, label: 'Fully Equipped Kitchen' },
+  { icon: Utensils, label: 'Fully Equipped Kitchen' },
   { icon: CheckCircle2, label: 'Fully Furnished' },
   { icon: Car, label: 'Paid Parking Available' },
   { icon: Wind, label: 'Swimming Pool (Coming Soon)' },
+  { icon: Palmtree, label: 'Resort Style Amenities (Coming Soon)' },
+  { icon: Baby, label: "Kid's Playground (Coming Soon)" },
+  { icon: Dumbbell, label: 'Fitness Gym (Coming Soon)' },
 ];
 
 export function Property() {
@@ -21,24 +24,24 @@ export function Property() {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* About the Space */}
-        <div className="max-w-3xl mx-auto text-center mb-24">
+        <div className="text-center mb-20 flex flex-col items-center">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerContainer}
-            className="space-y-6"
+            className="w-full flex flex-col items-center"
           >
-            <motion.h3 variants={fadeUpVariant} className="font-serif text-3xl md:text-4xl text-za-espresso">
-              Your Space
-            </motion.h3>
-            <motion.p variants={fadeUpVariant} className="font-sans text-za-charcoal font-light text-base md:text-lg leading-relaxed">
+            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-xl uppercase w-full">
+              YOUR
+            </h2>
+            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-2xl uppercase w-full">
+              SPACE
+            </h2>
+            <p className="font-serif italic text-xl md:text-3xl text-za-walnut mt-6 max-w-3xl font-light">
               Step into a thoughtfully curated haven where warm light meets raw textures. 
-              The suite is designed for quiet mornings and restful evenings, keeping the noise of the city out, while placing its conveniences just outside your door.
-            </motion.p>
-            <motion.p variants={fadeUpVariant} className="font-sans text-za-walnut font-medium">
-              5-minute walk from SM City Davao (Ecoland) · Walking distance from Davao Global Township
-            </motion.p>
+              The suite is designed for quiet mornings and restful evenings.
+            </p>
           </motion.div>
         </div>
 
@@ -48,7 +51,7 @@ export function Property() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
-          className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6 max-w-5xl mx-auto mb-32 border-b border-za-sand/30 pb-16"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-6 max-w-5xl mx-auto mb-20 border-b border-za-sand/30 pb-16"
         >
           {features.map((feature, i) => (
             <motion.div 
@@ -56,21 +59,29 @@ export function Property() {
               variants={fadeUpVariant}
               className="flex flex-col items-center text-center space-y-4"
             >
-              <div className="w-14 h-14 rounded-full flex items-center justify-center text-za-gold bg-za-sand/10 shadow-sm border border-za-sand/20">
-                <feature.icon strokeWidth={1} size={26} />
+              <div className="w-16 h-16 rounded-full flex items-center justify-center text-za-gold bg-za-cream border border-za-sand/30 shadow-sm transition-transform duration-300 hover:scale-105">
+                <feature.icon strokeWidth={1} size={24} />
               </div>
-              <span className="font-sans text-xs tracking-widest text-za-espresso font-light uppercase">{feature.label}</span>
+              <span className="font-sans text-[10px] md:text-xs tracking-widest text-za-charcoal font-medium uppercase px-2">{feature.label}</span>
             </motion.div>
           ))}
-          
-          {/* Times */}
-          <motion.div variants={fadeUpVariant} className="flex flex-col items-center justify-center text-center space-y-2 col-span-2 md:col-span-2 mt-8 md:mt-0 p-6 bg-za-sand/5 border border-za-sand/20">
-             <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-za-walnut">Check-In</div>
-             <div className="font-serif text-2xl text-za-espresso">2:00 PM</div>
+        </motion.div>
+
+        {/* Times */}
+        <motion.div
+           initial="hidden"
+           whileInView="visible"
+           viewport={{ once: true, margin: "-50px" }}
+           variants={staggerContainer}
+           className="flex flex-col md:flex-row gap-6 max-w-4xl mx-auto mb-32"
+        >
+          <motion.div variants={fadeUpVariant} className="flex-1 flex flex-col items-center justify-center text-center space-y-3 p-8 bg-[#FAF9F6] border border-za-sand/20 rounded-2xl shadow-sm transition-all hover:border-za-gold/40">
+             <div className="font-sans text-[11px] tracking-[0.2em] font-medium uppercase text-za-walnut">Check-In</div>
+             <div className="font-serif text-3xl md:text-4xl text-za-espresso">2:00 PM</div>
           </motion.div>
-          <motion.div variants={fadeUpVariant} className="flex flex-col items-center justify-center text-center space-y-2 col-span-2 md:col-span-2 mt-8 md:mt-0 p-6 bg-za-sand/5 border border-za-sand/20">
-             <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-za-walnut">Check-Out</div>
-             <div className="font-serif text-2xl text-za-espresso">12:00 NN</div>
+          <motion.div variants={fadeUpVariant} className="flex-1 flex flex-col items-center justify-center text-center space-y-3 p-8 bg-[#FAF9F6] border border-za-sand/20 rounded-2xl shadow-sm transition-all hover:border-za-gold/40">
+             <div className="font-sans text-[11px] tracking-[0.2em] font-medium uppercase text-za-walnut">Check-Out</div>
+             <div className="font-serif text-3xl md:text-4xl text-za-espresso">12:00 NN</div>
           </motion.div>
         </motion.div>
 

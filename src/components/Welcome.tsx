@@ -3,22 +3,6 @@ import { fadeUpVariant, staggerContainer } from '../lib/animations';
 import { useRef } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 
-const propertyFeatures = [
-  "Studio Type Unit",
-  "Fully Furnished Unit",
-  "Fully Equipped Kitchen",
-  "Unlimited WIFI",
-  "Board Games",
-  "1 Bathroom with Hot & Cold Shower",
-  "1 Queen sized bed",
-  "Can accommodate up to 4 pax",
-  "Additional Pax 350/head",
-  "Paid Parking",
-  "Swimming Pool – Under Construction",
-  "Check-In time 2:00pm",
-  "Check-Out time 12noon",
-];
-
 export function Welcome() {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -90,29 +74,7 @@ export function Welcome() {
                 </p>
               </motion.div>
 
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.6 }}
-                viewport={{ once: true }}
-                className="bg-[#2C2420]/40 backdrop-blur-md border border-za-gold/30 p-8 md:p-10 rounded-sm shadow-2xl"
-              >
-                <h3 className="font-sans font-bold italic text-2xl md:text-3xl text-white uppercase tracking-wide mb-8 drop-shadow-md">
-                  PROPERTY FEATURES
-                </h3>
-                <ul className="space-y-4">
-                  {propertyFeatures.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-4">
-                      <div className="flex-shrink-0 mt-1">
-                        <div className="w-2 h-2 rounded-full bg-za-cream shadow-[0_0_8px_rgba(255,255,255,0.6)]" />
-                      </div>
-                      <span className="font-sans font-medium text-lg text-za-cream leading-tight">
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
+
             </div>
 
             <motion.div 

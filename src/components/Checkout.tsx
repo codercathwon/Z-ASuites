@@ -73,21 +73,23 @@ export function Checkout() {
       
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 flex flex-col items-center">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeUpVariant}
+            className="w-full flex flex-col items-center"
           >
-            <h2 className="text-4xl md:text-6xl font-serif text-za-espresso leading-none mb-6 italic">
-              Departure Protocol
+            <h2 className="font-serif font-semibold text-[11vw] md:text-[8vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full">
+              DEPARTURE
             </h2>
-            <div className="text-za-walnut tracking-[0.3em] font-medium text-[10px] md:text-xs uppercase font-sans flex items-center justify-center gap-4">
-               <div className="w-16 h-px bg-za-walnut/30"></div>
-               BY 12:00 NOON
-               <div className="w-16 h-px bg-za-walnut/30"></div>
-            </div>
+            <h2 className="font-serif font-semibold text-[11vw] md:text-[8vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full">
+              PROTOCOL
+            </h2>
+            <p className="font-serif italic text-xl md:text-3xl text-za-charcoal mt-6 max-w-3xl font-light mb-4">
+              Check-out by 12:00 noon.
+            </p>
           </motion.div>
         </div>
 

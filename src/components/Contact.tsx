@@ -21,16 +21,15 @@ export function Contact() {
           
           <div className="flex flex-col md:flex-row gap-12 lg:gap-20 items-center">
             
-            <motion.div variants={fadeUpVariant} className="flex-1 text-center md:text-left">
-              <div className="flex items-center gap-4 justify-center md:justify-start mb-6">
-                <div className="h-[1px] w-8 bg-za-walnut"></div>
-                <div className="text-za-walnut tracking-[0.2em] text-xs uppercase font-sans">Reach Out</div>
-              </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-za-espresso mb-6 leading-tight">
-                Always at your <br/><span className="italic text-za-gold">service</span>
+            <motion.div variants={fadeUpVariant} className="flex-1 text-center md:text-left mb-10 md:mb-0 w-full relative z-10 flex flex-col items-center md:items-start">
+              <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full">
+                AT YOUR
               </h2>
-              <p className="font-sans text-za-charcoal/80 leading-relaxed text-sm md:text-base">
-                Whether you need fresh linens, local recommendations, or urgent assistance, we are just a message away. Your comfort is our priority.
+              <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full">
+                SERVICE
+              </h2>
+              <p className="font-serif italic text-xl md:text-3xl text-za-charcoal mt-6 max-w-2xl font-light">
+                Always here to help you.
               </p>
             </motion.div>
 

@@ -66,21 +66,22 @@ export function Gallery() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-za-gold/20 to-transparent"></div>
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
-        <div className="flex flex-col items-center justify-center text-center mb-20">
+        <div className="flex flex-col items-center justify-center text-center mb-20 w-full">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeUpVariant}
+            className="w-full flex flex-col items-center"
           >
-            <div className="flex items-center gap-4 justify-center mb-6">
-              <div className="w-8 h-px bg-za-gold/50"></div>
-              <div className="text-za-gold tracking-[0.3em] text-xs uppercase font-sans">Visual Journey</div>
-              <div className="w-8 h-px bg-za-gold/50"></div>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-serif text-za-cream mb-6">The Suite in Detail</h2>
-            <p className="font-sans text-za-cream/60 max-w-lg mx-auto text-sm md:text-base leading-relaxed">
-              Explore the carefully curated spaces of Z&A Suites, designed to offer comfort and quiet luxury.
+            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] leading-[0.8] text-za-cream tracking-tighter drop-shadow-xl uppercase w-full">
+              THE SUITE
+            </h2>
+            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] leading-[0.8] text-za-cream tracking-tighter drop-shadow-2xl uppercase w-full">
+              IN DETAIL
+            </h2>
+            <p className="font-serif italic text-xl md:text-3xl text-za-gold mt-6 max-w-3xl font-light">
+              Explore the carefully curated spaces of Z&A Suites.
             </p>
           </motion.div>
         </div>

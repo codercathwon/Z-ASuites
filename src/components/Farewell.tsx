@@ -32,14 +32,17 @@ export function Farewell() {
            {/* Decorative Border Inside Arch */}
            <div className="absolute inset-x-8 inset-t-8 bottom-0 rounded-t-full border-t border-l border-r border-za-sand/40 hidden md:block pointer-events-none"></div>
 
-            <motion.h2 
+            <motion.div 
               variants={fadeUpVariant}
-              className="text-[3.5rem] md:text-[5.5rem] lg:text-[7rem] leading-[0.9] font-serif text-za-espresso mb-8 tracking-tighter uppercase relative z-10"
+              className="flex flex-col items-center w-full mb-12 relative z-10"
             >
-              Farewell <br />
-              <span className="italic font-light lowercase text-za-gold">safe travels</span> <br />
-              Onwards
-            </motion.h2>
+              <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full text-center">
+                FAREWELL
+              </h2>
+              <p className="font-serif italic text-xl md:text-3xl text-za-gold mt-6 max-w-3xl font-light w-full text-center">
+                Safe travels onwards.
+              </p>
+            </motion.div>
 
             <motion.div 
               variants={fadeUpVariant}

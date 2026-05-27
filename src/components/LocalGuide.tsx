@@ -12,8 +12,14 @@ const categories = [
 
 const places = {
   'dining': [
+    { name: 'Lamao Fine Dining Restaurant', desc: 'Premium fine dining experience.', time: 'Nearby' },
+    { name: 'The Ranch Steak House', desc: 'Sizzling steaks and hearty meals.', time: 'Nearby' },
+    { name: 'Dulce Cafe', desc: 'Perfect spot for coffee and sweet treats.', time: 'Nearby' },
+    { name: 'Crabs & Co. Seafood Buffet', desc: 'Fresh local seafood in a buffet spread.', time: 'Nearby' },
+    { name: "Coco's South Bistro", desc: 'Classic comfort food in a cozy setting.', time: 'Nearby' },
+    { name: "King's Tuna", desc: 'Renowned for fresh tuna dishes.', time: 'Nearby' },
     { name: 'Swiss Deli & Restaurant', desc: 'Hearty European comfort food and deli.', time: '5 min drive' },
-    { name: 'Yellow Cab Pizza', desc: 'New York style pizza, open late.', time: '5 min walk (SM Ecoland)' },
+    { name: 'Yellow Cab Pizza', desc: 'New York style pizza, open late.', time: '5 min walk' },
     { name: 'Cafe Tavera', desc: 'Local favorites in a cozy setting.', time: '10 min drive' },
     { name: 'Matina Town Square (MTS)', desc: 'Live music, diverse food stalls, and bars.', time: '8 min drive' }
   ],
@@ -50,13 +56,15 @@ export function LocalGuide() {
             variants={fadeUpVariant}
             className="text-left max-w-xl"
           >
-            <div className="flex items-center gap-4 mb-4">
-              <div className="h-[1px] w-8 bg-za-walnut"></div>
-              <div className="text-za-walnut tracking-[0.2em] text-xs uppercase font-sans">Neighborhood</div>
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-za-espresso leading-tight">
-              A curated guide to <br/><span className="italic text-za-gold">our locale</span>
+            <h2 className="font-serif font-semibold text-[14vw] md:text-[10vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-sm uppercase">
+              THE
             </h2>
+            <h2 className="font-serif font-semibold text-[14vw] md:text-[10vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-sm uppercase">
+              LOCALE
+            </h2>
+            <p className="font-serif italic text-xl md:text-3xl text-za-walnut mt-6 max-w-3xl font-light">
+              A curated guide to our locale.
+            </p>
           </motion.div>
           
           <p className="font-sans text-za-charcoal/80 text-sm md:text-base max-w-sm border-l border-za-sand/50 pl-6 hidden md:block">
