@@ -13,7 +13,7 @@ export function Farewell() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-[#4A3728]/40 mix-blend-multiply z-10" />
         <img 
-          src="/view 1.jpg" 
+          src="./view 1.jpg" 
           alt="Z&A Suites Farewell Background" 
           className="w-full h-full object-cover filter brightness-[0.8] sepia-[0.3]"
         />

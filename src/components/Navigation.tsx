@@ -64,7 +64,7 @@ export function Navigation() {
           <a href="#hero" className="flex items-center gap-4 group">
              <div className="w-14 h-14 rounded-full border-[1px] border-za-gold/40 bg-[#402F24] shadow-md flex items-center justify-center shrink-0 overflow-hidden relative transition-transform duration-500 group-hover:scale-105">
                 {/* Image placeholder for the user's uploaded logo */}
-                <img src="/logo.jpeg" alt="Z&A Suites" className="absolute inset-0 w-full h-full object-cover z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                <img src="./logo.jpeg" alt="Z&A Suites" className="absolute inset-0 w-full h-full object-cover z-10" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                 
                 {/* Fallback CSS logo mimicking the elegant bronze Z&A logo */}
                 <div className="flex flex-col items-center justify-center pt-[2px] z-0">
