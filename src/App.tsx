@@ -25,9 +25,9 @@ export default function App() {
         <Welcome />
         <Property />
         <Gallery />
-        <HouseRules />
-        <Checkout />
         <LocalGuide />
+        <Checkout />
+        <HouseRules />
         <Contact />
       </main>
       <Farewell />

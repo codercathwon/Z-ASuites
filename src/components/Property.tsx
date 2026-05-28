@@ -12,7 +12,6 @@ const features = [
   { icon: Utensils, label: 'Fully Equipped Kitchen' },
   { icon: CheckCircle2, label: 'Fully Furnished' },
   { icon: Car, label: 'Paid Parking Available' },
-  { icon: Wind, label: 'Swimming Pool (Coming Soon)' },
   { icon: Palmtree, label: 'Resort Style Amenities (Coming Soon)' },
   { icon: Baby, label: "Kid's Playground (Coming Soon)" },
   { icon: Dumbbell, label: 'Fitness Gym (Coming Soon)' },
@@ -51,7 +50,7 @@ export function Property() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={staggerContainer}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-6 max-w-5xl mx-auto mb-20 border-b border-za-sand/30 pb-16"
+          className="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-6 max-w-5xl mx-auto mb-20"
         >
           {features.map((feature, i) => (
             <motion.div 
@@ -59,29 +58,21 @@ export function Property() {
               variants={fadeUpVariant}
               className="flex flex-col items-center text-center space-y-4"
             >
-              <div className="w-16 h-16 rounded-full flex items-center justify-center text-za-gold bg-za-cream border border-za-sand/30 shadow-sm transition-transform duration-300 hover:scale-105">
-                <feature.icon strokeWidth={1} size={24} />
+              <div className="w-14 h-14 rounded-full flex items-center justify-center text-za-gold border-[1px] border-za-gold/30 bg-transparent transition-transform duration-300 hover:scale-105">
+                <feature.icon strokeWidth={1} size={22} className="text-za-gold" />
               </div>
-              <span className="font-sans text-[10px] md:text-xs tracking-widest text-za-charcoal font-medium uppercase px-2">{feature.label}</span>
+              <span className="font-sans text-[10px] md:text-[11px] tracking-widest text-za-charcoal font-medium uppercase px-2">{feature.label}</span>
             </motion.div>
           ))}
-        </motion.div>
 
-        {/* Times */}
-        <motion.div
-           initial="hidden"
-           whileInView="visible"
-           viewport={{ once: true, margin: "-50px" }}
-           variants={staggerContainer}
-           className="flex flex-col md:flex-row gap-6 max-w-4xl mx-auto mb-32"
-        >
-          <motion.div variants={fadeUpVariant} className="flex-1 flex flex-col items-center justify-center text-center space-y-3 p-8 bg-[#FAF9F6] border border-za-sand/20 rounded-2xl shadow-sm transition-all hover:border-za-gold/40">
-             <div className="font-sans text-[11px] tracking-[0.2em] font-medium uppercase text-za-walnut">Check-In</div>
-             <div className="font-serif text-3xl md:text-4xl text-za-espresso">2:00 PM</div>
+          {/* Check-In / Check-Out Boxes inside the grid */}
+          <motion.div variants={fadeUpVariant} className="col-span-2 flex flex-col items-center justify-center text-center space-y-2 py-8 bg-[#fdfbf9] border border-za-sand/20 rounded-sm">
+             <div className="font-sans text-[9px] md:text-[10px] tracking-[0.2em] font-medium uppercase text-za-walnut">Check-In</div>
+             <div className="font-serif text-2xl md:text-3xl text-za-espresso">2:00 PM</div>
           </motion.div>
-          <motion.div variants={fadeUpVariant} className="flex-1 flex flex-col items-center justify-center text-center space-y-3 p-8 bg-[#FAF9F6] border border-za-sand/20 rounded-2xl shadow-sm transition-all hover:border-za-gold/40">
-             <div className="font-sans text-[11px] tracking-[0.2em] font-medium uppercase text-za-walnut">Check-Out</div>
-             <div className="font-serif text-3xl md:text-4xl text-za-espresso">12:00 NN</div>
+          <motion.div variants={fadeUpVariant} className="col-span-2 flex flex-col items-center justify-center text-center space-y-2 py-8 bg-[#fdfbf9] border border-za-sand/20 rounded-sm">
+             <div className="font-sans text-[9px] md:text-[10px] tracking-[0.2em] font-medium uppercase text-za-walnut">Check-Out</div>
+             <div className="font-serif text-2xl md:text-3xl text-za-espresso">12:00 NN</div>
           </motion.div>
         </motion.div>
 

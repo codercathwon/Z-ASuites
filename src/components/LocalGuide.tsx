@@ -12,7 +12,7 @@ const categories = [
 
 const places = {
   'dining': [
-    { name: 'Lamao Fine Dining Restaurant', desc: 'Premium fine dining experience.', time: 'Nearby' },
+    { name: 'Lamano Fine Dining Restaurant', desc: 'Premium fine dining experience.', time: 'Nearby' },
     { name: 'The Ranch Steak House', desc: 'Sizzling steaks and hearty meals.', time: 'Nearby' },
     { name: 'Dulce Cafe', desc: 'Perfect spot for coffee and sweet treats.', time: 'Nearby' },
     { name: 'Crabs & Co. Seafood Buffet', desc: 'Fresh local seafood in a buffet spread.', time: 'Nearby' },
