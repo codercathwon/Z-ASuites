@@ -48,26 +48,26 @@ export function LocalGuide() {
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] opacity-40 mix-blend-multiply pointer-events-none" />
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
-        <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
+        <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-12 md:mb-16 gap-8 text-center md:text-left">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeUpVariant}
-            className="text-left max-w-xl"
+            className="max-w-xl w-full flex flex-col items-center md:items-start"
           >
-            <h2 className="font-serif font-semibold text-[14vw] md:text-[10vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-sm uppercase">
+            <h2 className="font-serif font-semibold text-[14vw] md:text-[8vw] lg:text-[7vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-sm uppercase w-full break-words">
               THE
             </h2>
-            <h2 className="font-serif font-semibold text-[14vw] md:text-[10vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-sm uppercase">
+            <h2 className="font-serif font-semibold text-[14vw] md:text-[8vw] lg:text-[7vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-sm uppercase w-full break-words">
               LOCALE
             </h2>
-            <p className="font-serif italic text-xl md:text-3xl text-za-walnut mt-6 max-w-3xl font-light">
+            <p className="font-serif italic text-xl md:text-3xl text-za-walnut mt-6 max-w-3xl font-light w-full">
               A curated guide to our locale.
             </p>
           </motion.div>
           
-          <p className="font-sans text-za-charcoal/80 text-sm md:text-base max-w-sm border-l border-za-sand/50 pl-6 hidden md:block">
+          <p className="font-sans text-za-charcoal/80 text-sm md:text-base max-w-sm border-t md:border-t-0 md:border-l border-za-sand/50 pt-6 md:pt-0 pb-2 md:pb-0 md:pl-6">
             Discover the best dining, shopping, and leisurely spots just moments away from your door. Handpicked to elevate your stay.
           </p>
         </div>

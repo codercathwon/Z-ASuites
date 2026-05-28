@@ -31,10 +31,10 @@ export function Property() {
             variants={staggerContainer}
             className="w-full flex flex-col items-center"
           >
-            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-xl uppercase w-full">
+            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] lg:text-[7vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-xl uppercase w-full break-words">
               YOUR
             </h2>
-            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-2xl uppercase w-full">
+            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] lg:text-[7vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-2xl uppercase w-full break-words">
               SPACE
             </h2>
             <p className="font-serif italic text-xl md:text-3xl text-za-walnut mt-6 max-w-3xl font-light">

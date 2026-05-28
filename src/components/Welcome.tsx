@@ -47,10 +47,10 @@ export function Welcome() {
               viewport={{ once: true }}
               className="flex flex-col w-full mb-12"
             >
-              <h2 className="font-serif font-semibold text-[14vw] md:text-[10vw] leading-[0.8] text-za-white tracking-tighter drop-shadow-xl">
+              <h2 className="font-serif font-semibold text-[14vw] md:text-[10vw] lg:text-[8vw] leading-[0.8] text-za-white tracking-tighter drop-shadow-xl break-words">
                 ABOUT
               </h2>
-              <h2 className="font-serif font-semibold text-[14vw] md:text-[10vw] leading-[0.8] text-za-white tracking-tighter drop-shadow-2xl">
+              <h2 className="font-serif font-semibold text-[14vw] md:text-[10vw] lg:text-[8vw] leading-[0.8] text-za-white tracking-tighter drop-shadow-2xl break-words">
                 US
               </h2>
               <p className="font-serif italic text-xl md:text-3xl text-za-cream mt-6 max-w-3xl font-light drop-shadow-lg">

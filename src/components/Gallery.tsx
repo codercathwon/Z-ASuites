@@ -74,10 +74,10 @@ export function Gallery() {
             variants={fadeUpVariant}
             className="w-full flex flex-col items-center"
           >
-            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] leading-[0.8] text-za-cream tracking-tighter drop-shadow-xl uppercase w-full">
+            <h2 className="font-serif font-semibold text-[13vw] md:text-[8vw] lg:text-[7vw] leading-[0.8] text-za-cream tracking-tighter drop-shadow-xl uppercase w-full break-words">
               THE SUITE
             </h2>
-            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] leading-[0.8] text-za-cream tracking-tighter drop-shadow-2xl uppercase w-full">
+            <h2 className="font-serif font-semibold text-[13vw] md:text-[8vw] lg:text-[7vw] leading-[0.8] text-za-cream tracking-tighter drop-shadow-2xl uppercase w-full break-words">
               IN DETAIL
             </h2>
             <p className="font-serif italic text-xl md:text-3xl text-za-gold mt-6 max-w-3xl font-light">

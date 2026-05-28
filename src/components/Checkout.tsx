@@ -81,10 +81,10 @@ export function Checkout() {
             variants={fadeUpVariant}
             className="w-full flex flex-col items-center"
           >
-            <h2 className="font-serif font-semibold text-[11vw] md:text-[8vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full">
+            <h2 className="font-serif font-semibold text-[11vw] md:text-[8vw] lg:text-[7vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full break-words">
               DEPARTURE
             </h2>
-            <h2 className="font-serif font-semibold text-[11vw] md:text-[8vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full">
+            <h2 className="font-serif font-semibold text-[11vw] md:text-[8vw] lg:text-[7vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full break-words">
               PROTOCOL
             </h2>
             <p className="font-serif italic text-xl md:text-3xl text-za-charcoal mt-6 max-w-3xl font-light mb-4">
