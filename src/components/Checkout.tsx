@@ -81,10 +81,10 @@ export function Checkout() {
             variants={fadeUpVariant}
             className="w-full flex flex-col items-center"
           >
-            <h2 className="font-serif font-semibold text-[11vw] md:text-[8vw] lg:text-[7vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full break-words">
+            <h2 className="font-serif font-semibold text-[11vw] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full break-words">
               DEPARTURE
             </h2>
-            <h2 className="font-serif font-semibold text-[11vw] md:text-[8vw] lg:text-[7vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full break-words">
+            <h2 className="font-serif font-semibold text-[11vw] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6rem] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full break-words">
               PROTOCOL
             </h2>
             <p className="font-serif italic text-xl md:text-3xl text-za-charcoal mt-6 max-w-3xl font-light mb-4">
@@ -147,7 +147,7 @@ export function Checkout() {
                   key={step.id}
                   variants={fadeUpVariant}
                   onClick={() => toggleStep(step.id)}
-                  className={`group cursor-pointer flex flex-col md:flex-row gap-6 p-6 md:p-8 transition-all duration-500 rounded-none relative overflow-hidden ${
+                  className={`group cursor-pointer flex flex-col md:flex-row gap-6 p-6 md:p-8 transition-all duration-500 rounded-sm relative overflow-hidden ${
                     isDone 
                       ? 'bg-za-sand/5 grayscale-[0.5] opacity-70' 
                       : 'bg-white hover:bg-za-warm-white'

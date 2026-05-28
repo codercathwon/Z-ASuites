@@ -22,10 +22,10 @@ export function Contact() {
           <div className="flex flex-col md:flex-row gap-12 lg:gap-20 items-center w-full">
             
             <motion.div variants={fadeUpVariant} className="flex-1 min-w-0 text-center md:text-left mb-6 md:mb-0 w-full relative z-10 flex flex-col items-center md:items-start">
-              <h2 className="font-serif font-semibold text-[13vw] md:text-[7vw] lg:text-[6vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full break-words">
+              <h2 className="font-serif font-semibold text-[13vw] sm:text-6xl md:text-[4.5rem] lg:text-7xl leading-[0.8] text-za-espresso tracking-tighter uppercase w-full break-words">
                 AT YOUR
               </h2>
-              <h2 className="font-serif font-semibold text-[13vw] md:text-[7vw] lg:text-[6vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full break-words">
+              <h2 className="font-serif font-semibold text-[13vw] sm:text-6xl md:text-[4.5rem] lg:text-7xl leading-[0.8] text-za-espresso tracking-tighter uppercase w-full break-words">
                 SERVICE
               </h2>
               <p className="font-serif italic text-xl md:text-3xl text-za-charcoal mt-6 max-w-2xl font-light">

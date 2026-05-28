@@ -31,10 +31,10 @@ export function Property() {
             variants={staggerContainer}
             className="w-full flex flex-col items-center"
           >
-            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] lg:text-[7vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-xl uppercase w-full break-words">
+            <h2 className="font-serif font-semibold text-[13vw] sm:text-[5.5rem] md:text-[6rem] lg:text-[6.5rem] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-xl uppercase w-full break-words">
               YOUR
             </h2>
-            <h2 className="font-serif font-semibold text-[13vw] md:text-[9vw] lg:text-[7vw] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-2xl uppercase w-full break-words">
+            <h2 className="font-serif font-semibold text-[13vw] sm:text-[5.5rem] md:text-[6rem] lg:text-[6.5rem] leading-[0.8] text-za-espresso tracking-tighter drop-shadow-2xl uppercase w-full break-words">
               SPACE
             </h2>
             <p className="font-serif italic text-xl md:text-3xl text-za-walnut mt-6 max-w-3xl font-light">
@@ -100,7 +100,7 @@ export function Property() {
                 href="https://maps.app.goo.gl/mM19cWEFAbZ4USed9" 
                 target="_blank" 
                 rel="noreferrer"
-                className="inline-flex items-center space-x-2 bg-za-espresso text-za-cream px-6 py-3 rounded-none font-sans text-xs font-bold tracking-[0.15em] uppercase hover:bg-za-charcoal transition-colors hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center space-x-2 bg-za-espresso text-za-cream px-6 py-3 rounded-sm font-sans text-xs font-bold tracking-[0.15em] uppercase hover:bg-za-charcoal transition-colors hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>Get Directions</span>
              </a>

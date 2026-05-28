@@ -19,18 +19,23 @@ export function HouseRules() {
     <section id="house-rules" className="py-24 md:py-32 bg-za-warm-white text-za-charcoal relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
-        <div className="text-center mb-20 md:mb-28">
+        <div className="text-center mb-20 md:mb-28 flex flex-col items-center">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={fadeUpVariant}
+            className="w-full flex flex-col items-center"
           >
-            <div className="text-za-walnut tracking-[0.3em] text-[10px] md:text-sm uppercase font-sans mb-6">Guidelines</div>
-            <h2 className="text-[12vw] md:text-[6rem] lg:text-[7rem] leading-[0.85] font-serif text-[#9A3B36] tracking-tighter uppercase mx-auto">
-              Strictly <br className="hidden md:block"/> Prohibited <br />
-              <span className="text-[8vw] md:text-[4.5rem] lg:text-[5.5rem] italic font-light text-[#9A3B36]/80 tracking-tight lowercase">inside the property</span>
+            <h2 className="font-serif font-semibold text-[11vw] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6.5rem] leading-[0.8] text-[#9A3B36] tracking-tighter uppercase w-full break-words">
+              STRICTLY
             </h2>
+            <h2 className="font-serif font-semibold text-[11vw] sm:text-[4.5rem] md:text-[5.5rem] lg:text-[6.5rem] leading-[0.8] text-[#9A3B36] tracking-tighter uppercase w-full break-words">
+              PROHIBITED
+            </h2>
+            <p className="font-serif italic text-xl md:text-3xl text-[#9A3B36] mt-6 max-w-3xl font-light">
+              Inside the property.
+            </p>
           </motion.div>
         </div>
 

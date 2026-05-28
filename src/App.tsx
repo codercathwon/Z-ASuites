@@ -17,7 +17,7 @@ import { LoadingScreen } from './components/LoadingScreen';
 
 export default function App() {
   return (
-    <div className="selection:bg-za-gold/30 selection:text-za-espresso bg-za-cream min-h-screen">
+    <div className="selection:bg-za-gold/30 selection:text-za-espresso bg-za-cream min-h-screen overflow-x-hidden w-full">
       <LoadingScreen />
       <Navigation />
       <main>

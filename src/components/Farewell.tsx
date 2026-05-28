@@ -36,7 +36,7 @@ export function Farewell() {
               variants={fadeUpVariant}
               className="flex flex-col items-center w-full mb-12 relative z-10"
             >
-              <h2 className="font-serif font-semibold text-[13vw] md:text-[8vw] lg:text-[7vw] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full text-center break-words">
+              <h2 className="font-serif font-semibold text-[13vw] sm:text-[5.5rem] md:text-[6.5rem] lg:text-[7rem] leading-[0.8] text-za-espresso tracking-tighter uppercase w-full text-center break-words">
                 FAREWELL
               </h2>
               <p className="font-serif italic text-xl md:text-3xl text-za-gold mt-6 max-w-3xl font-light w-full text-center">
